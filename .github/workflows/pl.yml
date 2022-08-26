@@ -1,0 +1,22 @@
+name: Prepare
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  SERVER: production
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Initialize
+        run: echo "Initializing build for ${{env.SERVER}}"
+  

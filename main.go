@@ -1,7 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+	"testing"
 
 	"github.com/gin-gonic/gin"
 )
@@ -107,5 +109,17 @@ func main() {
 	// Delete
 	r.DELETE("/flavors", deleteFlavor)
 
-	r.Run()
+	err := r.Run()
+	if err != nil { //This is so bad but it's 4AM
+		fmt.Println(err)
+	}
+
+}
+
+func TestErr(t *testing.T) {
+	r := gin.Default()
+	err := r.Run()
+	if err != nil { //This is so bad but it's 4AM
+		fmt.Println(err)
+	}
 }
